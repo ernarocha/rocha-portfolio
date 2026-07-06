@@ -53,7 +53,7 @@ export default function Home() {
         <div className="intro-copy">
           <h1>Ernalene Rocha</h1>
           <p className="profile-location">Lipa City, Batangas, Philippines</p>
-          <p className="profile-role">Web Developer | UI/UX | Freelancer</p>
+          <p className="profile-role">Frontend Developer | UI/UX | Freelancer</p>
           <div className="header-actions">
             <a href="/Ernalene-Rocha-Resume.pdf" download>
               Download Resume

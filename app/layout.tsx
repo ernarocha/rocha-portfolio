@@ -10,7 +10,7 @@ const poppins = Poppins({
 });
 
 export const metadata: Metadata = {
-  title: "Ernalene Rocha | Web Developer",
+  title: "Ernalene Rocha | Frontend Developer",
   description:
     "Portfolio of Ernalene Rocha, a Computer Science student building thoughtful web systems for research, student communities, and operations dashboards.",
   icons: {
