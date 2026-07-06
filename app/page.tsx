@@ -1,5 +1,7 @@
-﻿import Image from "next/image";
+import Image from "next/image";
 import { CertificatePreview } from "./certificate-preview";
+import { ProjectCard } from "./project-card";
+import { projects } from "./project-data";
 import { ScrollReveal } from "./scroll-reveal";
 import { ThemeToggle } from "./theme-toggle";
 
@@ -31,37 +33,6 @@ const techStack = [
   },
 ];
 
-const projects = [
-  {
-    title: "CITE Thesis Management System",
-    image: "/cite.png",
-    url: "https://cite-tms-frontend.vercel.app/",
-    summary:
-      "Online library system for CITE research papers, allowing students and the public to search, request, and access approved academic materials.",
-  },
-  {
-    title: "JPCS SiteBuild",
-    image: "/jpcs.png",
-    url: "https://jpcs-dlsl.vercel.app/",
-    summary:
-      "The official JPCS De La Salle Lipa website for announcements, events, officer information, and organization updates.",
-  },
-  {
-    title: "ASMS",
-    image: "/asms.png",
-    url: "https://mediatrix-asms.vercel.app/",
-    summary:
-      "Ancillary services management platform for Mary Mediatrix Hospital.",
-  },
-  {
-    title: "AnimoMart",
-    image: "/animomart.png",
-    url: "https://animomart.vercel.app/",
-    summary:
-      "A campus buy-and-sell platform for De La Salle Lipa students, featuring product listings, clean item browsing, and a student-friendly buying flow.",
-  },
-];
-
 export default function Home() {
   return (
     <main className="site-shell">
@@ -80,9 +51,7 @@ export default function Home() {
         </div>
 
         <div className="intro-copy">
-          <h1>
-            Ernalene Rocha
-          </h1>
+          <h1>Ernalene Rocha</h1>
           <p className="profile-location">Lipa City, Batangas, Philippines</p>
           <p className="profile-role">Web Developer | UI/UX | Freelancer</p>
           <div className="header-actions">
@@ -102,18 +71,17 @@ export default function Home() {
           <article className="panel about-panel reveal-on-scroll">
             <p className="section-label">About Me</p>
             <p>
-              I am a BS Computer Science student at De La Salle Lipa with a strong
-              interest in frontend development, product thinking, and systems that
-              help people work with less friction. My projects usually begin with
-              real needs: making research easier to find, helping student
-              organizations communicate better, and turning operational data into
-              clearer dashboard experiences.
+              I&apos;m a BS Computer Science student at De La Salle Lipa with a
+              passion for building functional and user-friendly web
+              applications. I enjoy turning ideas into clean, responsive
+              interfaces and developing solutions that simplify everyday tasks.
             </p>
             <p>
-              I bring an organized, detail-aware mindset from executive office work
-              into software. That means I care about the interface, the workflow
-              behind it, and whether people can actually adopt the tool after it
-              ships.
+              I&apos;m particularly interested in frontend development and
+              UI/UX, where I can combine design with functionality to create
+              intuitive digital experiences. I&apos;m always looking to improve
+              my skills and build applications that are both practical and
+              reliable.
             </p>
           </article>
 
@@ -174,29 +142,8 @@ export default function Home() {
               <a href="/projects">View all</a>
             </div>
             <div className="project-list">
-              {projects.map((project) => (
-                <article className="project-card" key={project.title}>
-                  <div className="project-preview">
-                    <Image
-                      src={project.image}
-                      alt={`${project.title} preview`}
-                      width={1913}
-                      height={997}
-                      sizes="(max-width: 920px) 100vw, 30vw"
-                    />
-                  </div>
-                  <div>
-                    <h3>{project.title}</h3>
-                    <span>{project.summary}</span>
-                  </div>
-                  <a
-                    href={project.url ?? "mailto:erna.srocha@gmail.com"}
-                    target={project.url ? "_blank" : undefined}
-                    rel={project.url ? "noreferrer" : undefined}
-                  >
-                    View Live
-                  </a>
-                </article>
+              {projects.slice(0, 4).map((project) => (
+                <ProjectCard project={project} key={project.title} />
               ))}
             </div>
           </article>
@@ -233,14 +180,27 @@ export default function Home() {
         <div className="contact-list">
           <p className="section-label">Get In Touch</p>
           <a href="mailto:erna.srocha@gmail.com">
-            <span>@</span>
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path d="M1.5 8.67v8.58a3 3 0 0 0 3 3h15a3 3 0 0 0 3-3V8.67l-8.928 5.493a3 3 0 0 1-3.144 0L1.5 8.67Z" />
+                <path d="M22.5 6.908V6.75a3 3 0 0 0-3-3h-15a3 3 0 0 0-3 3v.158l9.714 5.978a1.5 1.5 0 0 0 1.572 0L22.5 6.908Z" />
+              </svg>
+            </span>
             <div>
               <strong>Email</strong>
               <small>erna.srocha@gmail.com</small>
             </div>
           </a>
           <a href="/Ernalene-Rocha-Resume.pdf" target="_blank" rel="noreferrer">
-            <span>CV</span>
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24">
+                <path
+                  fillRule="evenodd"
+                  clipRule="evenodd"
+                  d="M12 2.25a.75.75 0 0 1 .75.75v11.69l3.22-3.22a.75.75 0 1 1 1.06 1.06l-4.5 4.5a.75.75 0 0 1-1.06 0l-4.5-4.5a.75.75 0 1 1 1.06-1.06l3.22 3.22V3a.75.75 0 0 1 .75-.75Zm-9 15a.75.75 0 0 1 .75.75v2.25a1.5 1.5 0 0 0 1.5 1.5h13.5a1.5 1.5 0 0 0 1.5-1.5V18a.75.75 0 0 1 1.5 0v2.25a3 3 0 0 1-3 3H5.25a3 3 0 0 1-3-3V18a.75.75 0 0 1 .75-.75Z"
+                />
+              </svg>
+            </span>
             <div>
               <strong>Resume</strong>
               <small>View or download PDF</small>
