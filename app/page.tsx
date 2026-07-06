@@ -25,11 +25,11 @@ const techStack = [
   },
   {
     group: "Backend",
-    items: ["Python", "Java", "MongoDB"],
+    items: ["Python", "Java", "MongoDB", "Supabase"],
   },
   {
     group: "Tools",
-    items: ["Git", "GitHub"],
+    items: ["Git", "GitHub", "Figma"],
   },
 ];
 
