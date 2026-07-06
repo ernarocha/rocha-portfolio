@@ -88,7 +88,6 @@ export default function Home() {
           <article className="panel education-panel tech-panel reveal-on-scroll">
             <div className="tech-heading" id="tech-stack">
               <p className="section-label">Tech Stack</p>
-              <a href="/tech-stack">View all</a>
             </div>
             <div className="stack-groups">
               {techStack.map((group) => (
